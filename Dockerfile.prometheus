@@ -1,5 +1,6 @@
 # Use official Prometheus image
-FROM prom/prometheus:2.46.0
+FROM prom/prometheus:v2.47.2
+
 
 # Copy Prometheus configuration file
 COPY prometheus.yml /etc/prometheus/prometheus.yml
