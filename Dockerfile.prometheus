@@ -4,4 +4,4 @@ FROM prom/prometheus:latest
 COPY prometheus.yml /etc/prometheus/prometheus.yml
 
 # Use the official Prometheus entrypoint
-CMD ["/bin/prometheus", "--config.file=/opt/grafana-prom/grafana-prometheus/prometheus.yml"]
+CMD ["/bin/prometheus", "--config.file=/etc/prometheus/prometheus.yml"]
