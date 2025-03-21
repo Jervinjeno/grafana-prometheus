@@ -1,0 +1,15 @@
+Build and Run the Containers
+Build Docker Images
+
+# Build Prometheus image
+docker build -t myrepo/prometheus -f Dockerfile-prometheus .
+
+# Build Grafana image
+docker build -t myrepo/grafana -f Dockerfile-grafana .
+Run Docker Containers
+
+# Run Prometheus container
+docker run -d --name prometheus -p 9090:9090 myrepo/prometheus
+
+# Run Grafana container
+docker run -d --name grafana -p 3000:3000 myrepo/grafana
