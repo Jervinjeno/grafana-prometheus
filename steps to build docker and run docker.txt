@@ -13,3 +13,17 @@ docker run -d --name prometheus -p 9090:9090 prometheus
 
 # Run Grafana container
 docker run -d --name grafana -p 3000:3000 grafana
+
+##############################  Agent configuration  #####################################
+Build and Run the Docker Image
+On the agent machine, navigate to the directory where you saved the Dockerfile.node_exporter and run:
+
+# Build the Node Exporter Docker image
+docker build -t node-exporter-agent -f Dockerfile.node_exporter .
+
+# Run the container
+docker run -d --name node_exporter \
+  -p 9100:9100 \
+  --restart unless-stopped \
+  --network host \
+  node-exporter-agent

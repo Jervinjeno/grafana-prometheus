@@ -1,0 +1,19 @@
+# Use a minimal base image
+FROM alpine:latest
+
+# Set the Node Exporter version
+ENV NODE_EXPORTER_VERSION=1.7.0
+
+# Download and extract Node Exporter
+RUN apk add --no-cache wget \
+    && wget https://github.com/prometheus/node_exporter/releases/download/v${NODE_EXPORTER_VERSION}/node_exporter-${NODE_EXPORTER_VERSION}.linux-amd64.tar.gz \
+    && tar xvf node_exporter-${NODE_EXPORTER_VERSION}.linux-amd64.tar.gz \
+    && mv node_exporter-${NODE_EXPORTER_VERSION}.linux-amd64/node_exporter /usr/local/bin/ \
+    && rm -rf node_exporter-${NODE_EXPORTER_VERSION}.linux-amd64* \
+    && apk del wget
+
+# Expose the Node Exporter port
+EXPOSE 9100
+
+# Run Node Exporter
+CMD ["/usr/local/bin/node_exporter"]
