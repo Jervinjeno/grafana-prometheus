@@ -9,7 +9,7 @@ docker build -t myrepo/grafana -f Dockerfile-grafana .
 Run Docker Containers
 
 # Run Prometheus container
-docker run -d --name prometheus -p 9090:9090 myrepo/prometheus
+docker run -d --name prometheus -p 9090:9090 prometheus
 
 # Run Grafana container
-docker run -d --name grafana -p 3000:3000 myrepo/grafana
+docker run -d --name grafana -p 3000:3000 grafana
