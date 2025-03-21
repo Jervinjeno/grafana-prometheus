@@ -1,12 +1,7 @@
-# Use official Prometheus image
-FROM prom/prometheus:v2.47.2
-
+FROM prom/prometheus:latest
 
 # Copy Prometheus configuration file
 COPY prometheus.yml /etc/prometheus/prometheus.yml
 
-# Expose Prometheus port
-EXPOSE 9090
-
-# Start Prometheus
-CMD ["/bin/prometheus", "--config.file=/etc/prometheus/prometheus.yml"]
+# Use the official Prometheus entrypoint
+CMD ["/bin/prometheus", "--config.file=/opt/grafana-prom/grafana-prometheus/prometheus.yml"]
